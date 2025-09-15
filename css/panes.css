@@ -1,0 +1,67 @@
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden; /* Ensure panes handle their own scrolling */
+    padding: 8px; /* Add padding to main content for floating effect */
+    gap: 8px; /* Space between panes */
+}
+
+/* Panes */
+.pane {
+    flex-grow: 1;
+    padding: 16px;
+    background-color: var(--surface-container-low);
+    border-radius: 12px; /* Rounded corners for floating effect */
+    overflow-y: auto; /* Enable scrolling for pane content */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 100px; /* Minimum width for panes */
+    min-height: 0; /* Allow panes to shrink in vertical flex container */
+    box-shadow: var(--shadow-elevation-2); /* More pronounced shadow for floating */
+}
+
+body.dark-theme .pane {
+    background-color: var(--surface-container-low-dark); /* Explicitly set for dark mode */
+}
+
+/* Override for center-pane to act as a container for inner cards */
+.center-pane {
+    /* Removed background-color, box-shadow, and border to prevent conflicts */
+}
+
+.pane:last-child {
+    /* No specific border-right needed due to gap */
+}
+
+.pane h2 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+/* Resizers */
+.resizer {
+    width: 8px; /* Resizer width */
+    background-color: transparent; /* Make resizer background transparent */
+    cursor: ew-resize;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    position: relative; /* For hover effect */
+}
+
+.resizer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Thin line for resizer */
+    height: 100%;
+    background-color: var(--outline);
+    opacity: 0.5; /* Always visible but subtle */
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.resizer:hover::before {
+    background-color: var(--primary);
+    opacity: 1;
+}

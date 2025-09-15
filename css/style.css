@@ -1,0 +1,192 @@
+:root {
+    /* Light Mode Colors */
+    --primary-light: #006a6a;
+    --on-primary-light: #ffffff;
+    --primary-container-light: #4ff8f8;
+    --on-primary-container-light: #002020;
+    --secondary-light: #4a6363;
+    --on-secondary-light: #ffffff;
+    --secondary-container-light: #cde8e8;
+    --on-secondary-container-light: #051f1f;
+    --tertiary-light: #4b607c;
+    --on-tertiary-light: #ffffff;
+    --tertiary-container-light: #d3e4ff;
+    --on-tertiary-container-light: #041c36;
+    --error-light: #ba1a1a;
+    --on-error-light: #ffffff;
+    --error-container-light: #ffdad6;
+    --on-error-container-light: #410002;
+    --background-light: #fbfdfd;
+    --on-background-light: #191c1c;
+    --surface-light: #fbfdfd;
+    --on-surface-light: #191c1c;
+    --surface-variant-light: #dae5e5;
+    --on-surface-variant-light: #3f4949;
+    --outline-light: #6f7979;
+    --shadow-light: #000000;
+    --inverse-surface-light: #2e3131;
+    --inverse-on-surface-light: #eff1f1;
+    --inverse-primary-light: #29dcdc;
+    --surface-dim-light: #d9dbdb;
+    --surface-bright-light: #fbfdfd;
+    --surface-container-lowest-light: #ffffff;
+    --surface-container-low-light: #f3f6f6;
+    --surface-container-light: #ededee;
+    --surface-container-high-light: #e7ebec;
+    --surface-container-highest-light: #e1e6e6;
+    --nav-bar-background-light: var(--surface-container-low-light); /* Specific background for nav bar in light mode */
+    --line-number-color-light: var(--on-background-light);
+
+    /* Dark Mode Colors */
+    --primary-dark: #29dcdc;
+    --on-primary-dark: #003737;
+    --primary-container-dark: #005050;
+    --on-primary-container-dark: #4ff8f8;
+    --secondary-dark: #b1ccce;
+    --on-secondary-dark: #1c3435;
+    --secondary-container-dark: #334b4b;
+    --on-secondary-container-dark: #cde8e8;
+    --tertiary-dark: #a7c7e8;
+    --on-tertiary-dark: #1a314c;
+    --tertiary-container-dark: #334863;
+    --on-tertiary-container-dark: #d3e4ff;
+    --error-dark: #ffb4ab;
+    --on-error-dark: #690005;
+    --error-container-dark: #93000a;
+    --on-error-container-dark: #ffdad6;
+    --background-dark: #0a0a0a; /* Even darker background for more contrast */
+    --on-background-dark: #e1e3e3;
+    --surface-dark: #0a0a0a;
+    --on-surface-dark: #e1e3e3;
+    --surface-variant-dark: #3f4949;
+    --on-surface-variant-dark: #bec8c8;
+    --outline-dark: #889393;
+    --shadow-dark: #000000;
+    --inverse-surface-dark: #e1e3e3;
+    --inverse-on-surface-dark: #2e3131;
+    --inverse-primary-dark: #006a6a;
+    --surface-dim-dark: #191c1c;
+    --surface-bright-dark: #414949;
+    --surface-container-lowest-dark: #1f1f1f; /* Lighter than background for lowest elevation */
+    --surface-container-low-dark: #2a2a2a; /* Noticeably lighter for panes */
+    --surface-container-dark: #383838;
+    --surface-container-high-dark: #474747; /* Lighter for title bar */
+    --surface-container-highest-dark: #555555;
+    --nav-bar-background-dark: var(--surface-container-dark); /* Specific background for nav bar in dark mode */
+    --line-number-color-dark: var(--on-background-dark); /* Adjusted to a lighter color for line numbers in dark mode */
+
+    /* Current Theme Colors (default to light) */
+    --primary: var(--primary-light);
+    --on-primary: var(--on-primary-light);
+    --primary-container: var(--primary-container-light);
+    --on-primary-container: var(--on-primary-container-light);
+    --secondary: var(--secondary-light);
+    --on-secondary: var(--on-secondary-light);
+    --secondary-container: var(--secondary-container-light);
+    --on-secondary-container: var(--on-secondary-container-light);
+    --tertiary: var(--tertiary-light);
+    --on-tertiary: var(--on-tertiary-light);
+    --tertiary-container: var(--tertiary-container-light);
+    --on-tertiary-container: var(--on-tertiary-container-light);
+    --error: var(--error-light);
+    --on-error: var(--on-error-light);
+    --error-container: var(--error-container-light);
+    --on-error-container: var(--on-error-container-light);
+    --background: var(--background-light);
+    --on-background: var(--on-background-light);
+    --surface: var(--surface-light);
+    --on-surface: var(--on-surface-light);
+    --surface-variant: var(--surface-variant-light);
+    --on-surface-variant: var(--on-surface-variant-light);
+    --outline: var(--outline-light);
+    --shadow: var(--shadow-light);
+    --inverse-surface: var(--inverse-surface-light);
+    --inverse-on-surface: var(--inverse-on-surface-light);
+    --inverse-primary: var(--inverse-primary-light);
+    --surface-dim: var(--surface-dim-light);
+    --surface-bright: var(--surface-bright-light);
+    --surface-container-lowest: var(--surface-container-lowest-light);
+    --surface-container-low: var(--surface-container-low-light);
+    --surface-container: var(--surface-container-light);
+    --surface-container-high: var(--surface-container-high-light);
+    --surface-container-highest: var(--surface-container-highest-light);
+    --nav-bar-background: var(--nav-bar-background-light); /* Default nav bar background */
+    --line-number-color: var(--line-number-color-light);
+}
+
+body.dark-theme {
+    --primary: var(--primary-dark);
+    --on-primary: var(--on-primary-dark);
+    --primary-container: var(--primary-container-dark);
+    --on-primary-container: var(--on-primary-container-dark);
+    --secondary: var(--secondary-dark);
+    --on-secondary: var(--on-secondary-dark);
+    --secondary-container: var(--secondary-container-dark);
+    --on-secondary-container: var(--on-secondary-container-dark);
+    --tertiary: var(--tertiary-dark);
+    --on-tertiary: var(--on-tertiary-dark);
+    --tertiary-container: var(--tertiary-container-dark);
+    --on-tertiary-container: var(--on-tertiary-container-dark);
+    --error: var(--error-dark);
+    --on-error: var(--on-error-dark);
+    --error-container: var(--error-container-dark);
+    --on-error-container: var(--on-error-container-dark);
+    --background: var(--background-dark);
+    --on-background: var(--on-background-dark);
+    --surface: var(--surface-dark);
+    --on-surface: var(--on-surface-dark);
+    --surface-variant: var(--surface-variant-dark);
+    --on-surface-variant: var(--on-surface-variant-dark);
+    --outline: var(--outline-dark);
+    --shadow: var(--shadow-dark);
+    --inverse-surface: var(--inverse-surface-dark);
+    --inverse-on-surface: var(--inverse-on-surface-dark);
+    --inverse-primary: var(--inverse-primary-dark);
+    --surface-dim: var(--surface-dim-dark);
+    --surface-bright: var(--surface-bright-dark);
+    --surface-container-lowest: var(--surface-container-lowest-dark);
+    --surface-container-low: var(--surface-container-low-dark);
+    --surface-container: var(--surface-container-dark);
+    --surface-container-high: var(--surface-container-high-dark);
+    --surface-container-highest: var(--surface-container-highest-dark);
+    --nav-bar-background: var(--nav-bar-background-dark); /* Nav bar background in dark mode */
+    --line-number-color: var(--line-number-color-dark);
+}
+
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    color: var(--on-background);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Transitions for interactive elements */
+button, .resizer {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Shadow elevations (example values, adjust as needed) */
+:root {
+    --shadow-elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    --shadow-elevation-2: 0px 2px 4px rgba(0, 0, 0, 0.3), 0px 2px 6px rgba(0, 0, 0, 0.15);
+    --shadow-elevation-3: 0px 4px 8px rgba(0, 0, 0, 0.3), 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme {
+    --shadow-elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px rgba(0, 0, 0, 0.1); /* More subtle shadows */
+    --shadow-elevation-2: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 2px 6px rgba(0, 0, 0, 0.1);
+    --shadow-elevation-3: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 4px 12px rgba(0, 0, 0, 0.1);
+}

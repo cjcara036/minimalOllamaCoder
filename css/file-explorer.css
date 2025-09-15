@@ -1,0 +1,236 @@
+/* Styles for the file explorer in the left pane */
+/* Styles for the file explorer in the left pane, inspired by VS Code */
+.file-explorer-container {
+    padding: 5px;
+    overflow-y: auto;
+    flex-grow: 1;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.file-explorer-button-wrapper {
+    position: relative;
+    height: 32px; /* Fixed height for the button */
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    align-items: center;
+}
+
+.file-explorer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove default padding */
+    width: 32px; /* Circular button size */
+    height: 32px;
+    border-radius: 50%; /* Circular shape */
+    background-color: var(--primary); /* Use primary color from style.css */
+    color: var(--on-primary); /* Use on-primary color from style.css */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: width 0.3s ease, border-radius 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Hide overflowing text initially */
+    white-space: nowrap;
+    position: absolute; /* Position absolutely within wrapper */
+    left: 0;
+    top: 0;
+}
+
+.file-explorer-button:hover {
+    width: 150px; /* Expand to pill shape */
+    border-radius: 16px; /* Pill shape */
+    background-color: var(--primary-container); /* Use primary-container for hover */
+    color: var(--on-primary-container);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.file-explorer-button .material-symbols-outlined {
+    font-size: 1.2em;
+    margin-right: 0; /* No margin initially */
+    transition: margin-right 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
+}
+
+.file-explorer-button:hover .material-symbols-outlined {
+    margin-right: 8px; /* Add margin when expanded */
+}
+
+.file-explorer-button-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+    flex-shrink: 0; /* Prevent text from shrinking */
+}
+
+.file-explorer-button:hover .file-explorer-button-text {
+    opacity: 1;
+}
+
+.file-explorer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-explorer-item {
+    display: flex;
+    flex-direction: column; /* Allow children to stack below */
+    padding: 2px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.file-explorer-item:hover > .file-explorer-item-content {
+    background-color: var(--hover-bg);
+}
+
+.file-explorer-item-content {
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-explorer-item.selected > .file-explorer-item-content {
+    background-color: var(--selected-bg);
+    color: var(--selected-color);
+}
+
+.file-explorer-item-toggle {
+    display: inline-block;
+    width: 16px; /* Space for the icon */
+    text-align: center;
+    margin-right: 4px;
+    color: var(--text-color-light);
+    font-size: 0.7em;
+    line-height: 1;
+    user-select: none;
+}
+
+.file-explorer-item-toggle.collapsed::before {
+    content: "▶"; /* Right-pointing triangle */
+}
+
+.file-explorer-item-toggle.expanded::before {
+    content: "▼"; /* Down-pointing triangle */
+}
+
+.file-explorer-item.file .file-explorer-item-toggle {
+    visibility: hidden; /* Hide toggle for files */
+}
+
+.file-icon {
+    margin-right: 5px;
+    font-size: 1em;
+    line-height: 1;
+}
+
+/* Icons for different file types (using Material Symbols or custom) */
+.file-explorer-item.directory > .file-explorer-item-content > .file-icon::before {
+    content: "folder"; /* Material Symbol for folder */
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.file-explorer-item.directory.expanded > .file-explorer-item-content > .file-icon::before {
+    content: "folder_open"; /* Material Symbol for open folder */
+}
+
+.file-explorer-item.file > .file-explorer-item-content > .file-icon::before {
+    content: "description"; /* Material Symbol for generic file */
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Specific file type icons (example) */
+.file-explorer-item.file[data-extension="html"] > .file-explorer-item-content > .file-icon::before { content: "html"; }
+.file-explorer-item.file[data-extension="css"] > .file-explorer-item-content > .file-icon::before { content: "css"; }
+.file-explorer-item.file[data-extension="js"] > .file-explorer-item-content > .file-icon::before { content: "javascript"; }
+/* Add more as needed */
+
+.file-name {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-explorer-children {
+    margin-left: 16px; /* Align with toggle icon */
+    padding-left: 5px;
+    border-left: 1px solid var(--border-color-light);
+}
+
+/* Right-click Context Menu Styles */
+/* Right-click Context Menu Styles */
+.file-explorer-context-menu {
+    position: fixed;
+    background-color: var(--surface-container-high); /* Use a slightly elevated surface color */
+    border: 1px solid var(--outline);
+    border-radius: 5px;
+    box-shadow: var(--shadow-elevation-2);
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    z-index: 1000; /* Ensure it's on top */
+    min-width: 180px; /* Slightly wider for better text display */
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: var(--on-surface);
+}
+
+body.dark-theme .file-explorer-context-menu {
+    background-color: #1a1a1a; /* Very dark grey for context menu background in dark mode */
+    color: #ffffff; /* Pure white text for readability in dark mode */
+}
+
+.file-explorer-context-menu-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for submenu positioning */
+}
+
+.file-explorer-context-menu-item:hover {
+    background-color: var(--surface-variant); /* Use surface-variant for hover */
+    color: var(--on-surface-variant);
+}
+
+body.dark-theme .file-explorer-context-menu-item:hover {
+    background-color: #333333; /* Slightly lighter dark grey for hover background in dark mode */
+    color: #ffffff; /* Pure white text for readability in dark mode */
+}
+
+.file-explorer-context-menu-item.has-submenu::after {
+    content: "▶"; /* Right arrow for submenu indicator */
+    font-size: 0.7em;
+    margin-left: 10px;
+    color: var(--on-surface-variant); /* Use a color that contrasts with hover */
+}
+
+.file-explorer-submenu {
+    position: absolute;
+    left: 100%; /* Position to the right of the parent menu item */
+    top: -5px; /* Align with the parent menu item's top edge */
+    background-color: var(--surface-container-high);
+    border: 1px solid var(--outline);
+    border-radius: 5px;
+    box-shadow: var(--shadow-elevation-2);
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    min-width: 180px;
+    display: none; /* Hidden by default */
+}
+
+.file-explorer-context-menu-item:hover > .file-explorer-submenu {
+    display: block; /* Show submenu on hover */
+}

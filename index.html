@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Minimal Coder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/title-bar.css">
+    <link rel="stylesheet" href="css/panes.css">
+    <link rel="stylesheet" href="css/file-explorer.css">
+    <link rel="stylesheet" href="css/ollama-chat.css">
+    <link rel="stylesheet" href="css/right-pane.css"> <!-- Added right-pane.css link -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="title-bar">
+            <h1 class="app-title">Ollama Minimal Coder <span id="app-version"></span></h1>
+            <div class="theme-toggle">
+                <button id="theme-toggle-button" class="material-symbols-outlined">light_mode</button>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="pane left-pane" id="left-pane">
+                <h2>File Explorer</h2>
+                <!-- The button and file explorer content will be dynamically added by js/file-explorer.js -->
+            </div>
+            <div class="resizer horizontal-resizer" id="left-resizer"></div>
+            <div class="pane center-pane" id="center-pane">
+                <!-- Ollama Chat content will be dynamically loaded by js/ollama-chat.js -->
+            </div>
+            <div class="resizer horizontal-resizer" id="right-resizer"></div>
+            <div class="pane right-pane" id="right-pane">
+                <!-- Right pane content will be dynamically loaded by js/right-pane.js -->
+            </div>
+        </main>
+    </div>
+    <script src="js/sysconfig.js"></script>
+    <script src="js/right-pane.js"></script>
+    <script src="js/title-bar.js"></script>
+    <script src="js/panes.js"></script>
+    <script src="js/ollama-utils.js"></script>
+    <script src="js/ollama-ui.js"></script>
+    <script src="js/ollama-api.js"></script>
+    <script src="js/ollama-file-handling.js"></script>
+    <script src="js/ollama-stream-processor.js"></script>
+    <script src="js/ollama-message-handler.js"></script>
+    <script src="js/context-compression.js"></script>
+    <script src="js/ollama-chat.js"></script>
+    <script src="js/ollama-system-integration.js"></script>
+    <script src="js/file-explorer.js"></script>
+</body>
+</html>
